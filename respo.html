@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/about.css">
+    <link rel="stylesheet" href="./css/RWD.css">
+    
+</head>
+<style>
+    /* Base styles for responsiveness */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .head {
+        background-color: #f8f9fa;
+        padding: 10px;
+    }
+
+    .ECOURSES {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .ECOURSE {
+        flex: 1;
+        min-width: 200px;
+        text-align: center;
+        margin: 5px;
+    }
+
+    .navagaction {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .navbar {
+        display: flex;
+        gap: 15px;
+    }
+
+    .navchild a {
+        text-decoration: none;
+        color: #333;
+        padding: 5px 10px;
+    }
+
+    .navchild a#active {
+        color: tomato;
+    }
+
+    .jointbar button {
+        background-color: tomato;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    /* Mobile header */
+    .headerformob {
+        display: none;
+        position: relative;
+    }
+
+    .headerbar {
+        display: none;
+        flex-direction: column;
+        background-color: #f8f9fa;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .headerbar .navchild {
+        margin: 5px 0;
+    }
+
+    .headerbar .jointbar {
+        margin-top: 10px;
+    }
+
+    /* About section */
+    .section h1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .secA {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .secA a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .aboutus {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .contact img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .contact1 h2 {
+        color: tomato;
+    }
+
+    .contact1 button {
+        background-color: tomato;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    /* Choose us section */
+    .chooseus {
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .choose1 h2 {
+        color: tomato;
+    }
+
+    .choose2 form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choose2 input, .choose2 select {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Footer */
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        flex-wrap: wrap;
+    }
+
+    .footerfirst, .footersec {
+        flex: 1;
+        min-width: 250px;
+        margin: 10px;
+    }
+
+    .footersec form {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .footersec input {
+        padding: 10px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+    }
+
+    .footersec #ft1 {
+        background-color: tomato;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+    }
+
+    .adress {
+        text-align: center;
+        padding: 10px;
+        background-color: #222;
+        color: white;
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 768px) {
+        .ECOURSES {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .navagaction {
+            flex-direction: column;
+        }
+
+        .navbar {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .headerformob {
+            display: block;
+        }
+
+        .navagaction .navbar {
+            display: none; /* Hide desktop nav on mobile */
+        }
+
+        #log:checked ~ .headerbar {
+            display: flex;
+        }
+
+        .aboutus {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .chooseus {
+            flex-direction: column;
+        }
+
+        .footer {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .ECOURSE {
+            min-width: 100%;
+        }
+
+        .contact1 p {
+            font-size: 14px;
+        }
+
+        .choose1 p {
+            font-size: 14px;
+        }
+
+        .footerfirst p {
+            font-size: 14px;
+        }
+    }
+</style>
+<body>
+      <!-- header section Starts -->
+      <header class="head">
+        <div class="ECOURSES">
+         <div class="ECOURSE" ><h1>ECOURSES</h1></div>
+         <div class="ECOURSE"><p><b>Our Office</b><br>Next planer Acadmay (skd), Gilgit Baltistan, Pakistan</p></div>
+         <div class="ECOURSE" id="ECO"><p><b> Email Us</b> <br> muhammadalianjumbalghari@gmail.com</p></div>
+         <div class="ECOURSE" id="ECO"><p><b>Cell Us</b><br> 03555165163</p></div>
+        </div>
+        <hr>
+        <div class="navagaction">
+         <div class="subject"><h2><a href="">Subjects</a> </h2></div>
+         <div class="navbar">
+             <div class="navchild"><a href="index.html">Home</a></div>
+             <div class="navchild"><a href="about.html" id="active">About</a></div>
+             <div class="navchild"><a href="Courses.html">Courses</a></div>
+             <div class="navchild"><a href="Developers.html">Developers</a></div>
+             <div class="navchild"><a href="">Blog</a></div>
+             <div class="navchild"><a href="Contact.html">Contact</a></div>
+         </div>
+         <div class="jointbar"><button>Joint Us</button></div>
+        </div>
+     </header>
+       <!-- RWD for moblie --> 
+       <div class="section">
+       <div class="headerformob" id="headmoble">
+        <label for="log"><img src="./img/menuicon.png" alt=""></label>
+        <input type="checkbox" id="log">
+  
+        <div class="headerbar">
+        <div class="navchild"><a href="index.html">Home</a></div>
+            <div class="navchild"><a href="about.html" id="active">About</a></div>
+            <div class="navchild"><a href="Courses.html">Courses</a></div>
+            <div class="navchild"><a href="Developers.html">Developers</a></div>
+            <div class="navchild"><a href="">Blog</a></div>
+            <div class="navchild"><a href="Contact.html">Contact</a></div>
+        <div class="jointbar"><button>Joint Us</button></div>
+      </div>
+       </div>
+     <!-- head secion -->
+    
+      <h1>ABOUT</h1>
+     <div class="secA"> <a href="index.html">Home</a><a href="about.html">About</a></div>
+     </div>
+     <!-- ABOUT US    Innovative Way To Learn -->
+<div class="aboutus">
+  <div class="contact"><img src="./img/about.jpg" alt=""></div>
+  <div class="contact1"><h2>ABOUT US</h2><h1>Innovative Way To Learn</h1><p>Aliquyam accusam clita nonumy ipsum sit sea clita ipsum clita, ipsum dolores amet voluptua duo dolores et sit ipsum rebum, sadipscing et erat eirmod diam kasd labore clita est. Diam sanctus gubergren sit rebum clita amet, sea est sea vero sed et. Sadipscing labore tempor at sit dolor clita consetetur diam. Diam ut diam tempor no et, lorem dolore invidunt no nonumy stet ea labore, dolor justo et sit gubergren diam sed sed no ipsum. Sit tempor ut nonumy elitr dolores justo aliquyam ipsum stet</p><button><a href="" style="text-decoration: none; color: white;">Learn More</a></button></div>
+</div>
+     <!-- NEED ANY COURSES -->
+<div class="chooseus"><div class="choose1"><h2 style="color: tomato;">NEED ANY COURSES</h2><h1>30% Off For New Students</h1><p>Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo. Erat justo sed sed diam. Ea et erat ut sed diam sea ipsum est dolor
+
+  Labore eos amet dolor amet diam
+  Etsea et sit dolor amet ipsum
+  Diam dolor diam elitripsum vero.</p></div>
+  <div class="choose2"><h1>Sign Up Now</h1><form action=""><input type="text" placeholder="Enter your name " required><br><br><input type="email" placeholder="Enter your Email" required><br><br> <select name="" id=""><option value="java">Java</option><option value="c++">c++</option><option value="webdevelopment">webdevelopment</option><option value="python">Python</option><option value="JavaScript">JavaScript</option></select><br><br><input type="submit" value="Submit" style="background-color: darkblue; color: white;"></form></div></div>
+     <!-- footer section -->
+<div class="footer">
+    <div class="footerfirst"><h2 style=" color: tomato;">GET IN TOUCH</h2><p>123 Street, New York, USA <br><br>+923555165163 <br><br><span id="gmailo"> muhammadalianjumbalghari@gmail.com</span></p> <button></button1><button></button2>  <button></button3>
+    <button></button4> </div>
+    <div class="footerfirst"><h2 style=" color: tomato;">OUR COURSES</h2><p> Web Design <br><br>Apps Design <br><br>Marketing
+      Research <br><br>
+      SEO</p> </div>
+      <div class="footersec"><h2 style=" color: tomato;">NEWSLETTER</h2><p> Rebum labore lorem dolores kasd est, et ipsum amet et at kasd, ipsum sea tempor magna tempor. Accu kasd sed ea duo ipsum. Dolor duo eirmod sea justo no lorem est diam</p> <form action=""><input type="email" placeholder="Enter your email" required id="ft"> <input type="submit" value="Sign Up" id="ft1"></form>
+      </div>
+  </div>
+  <div class="adress"> © Domain Name. All Rights Reserved. Designed by Anjum balghari</div>
+</body>
+</html>
