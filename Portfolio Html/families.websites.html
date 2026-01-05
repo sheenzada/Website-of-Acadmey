@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultimate Family Website</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- AOS for scroll animations -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    background: #f5f7fa;
+    color: #333;
+    transition: background 0.5s, color 0.5s;
+}
+body.dark-mode { background:#1e1e1e; color:#eee; }
+
+.navbar-brand { font-weight: bold; }
+.nav-link:hover { color: #ffc107 !important; }
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center;
+    background-size: cover;
+    height: 90vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: #fff;
+}
+.hero h1 { font-family: 'Pacifico', cursive; font-size: 4rem; text-shadow: 3px 3px 12px rgba(0,0,0,0.6); }
+.hero p { font-size: 1.5rem; margin-bottom: 2rem; }
+
+.section-title { text-align: center; font-size: 2.5rem; font-weight:700; margin-bottom:3rem; color: #0d6efd; }
+body.dark-mode .section-title { color: #ffc107; }
+
+.card { border-radius:20px; transition: transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform: translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.2); }
+.card img { border-top-left-radius:20px; border-top-right-radius:20px; height:250px; object-fit:cover; }
+
+.timeline { position:relative; margin:50px 0; padding-left:50px; }
+.timeline::before { content:''; position:absolute; left:20px; top:0; width:4px; height:100%; background:#0d6efd; }
+.timeline-item { position:relative; margin-bottom:40px; }
+.timeline-item::before { content:''; position:absolute; left:-6px; top:0; width:20px; height:20px; border-radius:50%; background:#0d6efd; }
+body.dark-mode .timeline::before, body.dark-mode .timeline-item::before { background:#ffc107; }
+
+.counter { font-size:3rem; font-weight:bold; color:#0d6efd; }
+body.dark-mode .counter { color:#ffc107; }
+
+.gallery-img { cursor:pointer; transition: transform 0.3s; }
+.gallery-img:hover { transform: scale(1.05); }
+
+#lightbox { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:none; align-items:center; justify-content:center; z-index:1000; }
+#lightbox img { max-width:90%; max-height:90%; border-radius:20px; }
+
+footer { background:#0d6efd; color:#fff; text-align:center; padding:2rem 0; font-weight:500; }
+body.dark-mode footer { background:#333; color:#ffc107; }
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Family</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
+        <li class="nav-item"><a class="nav-link" href="#counters">Stats</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" data-aos="fade-up">
+  <div class="container">
+    <h1>Welcome to Our Family</h1>
+    <p>Love, Joy & Memories</p>
+    <button class="btn btn-primary btn-hero" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">About Us</h2>
+    <div class="row text-center">
+      <div class="col-md-4" data-aos="zoom-in"><div class="card mb-4 shadow-sm"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"><div class="card-body"><h5>Mom</h5><p>Cooking & Storytelling</p></div></div></div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100"><div class="card mb-4 shadow-sm"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80"><div class="card-body"><h5>Dad</h5><p>Photography & Sports</p></div></div></div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200"><div class="card mb-4 shadow-sm"><img src="https://images.unsplash.com/photo-1533077160595-dcb9ed5e51b3?auto=format&fit=crop&w=800&q=80"><div class="card-body"><h5>Kids</h5><p>Curious & Energetic</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Gallery</h2>
+    <div class="row g-3">
+      <div class="col-md-4" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded gallery-img" alt="Trip"></div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100"><img src="https://images.unsplash.com/photo-1509228627151-3a9d0d81ee7e?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded gallery-img" alt="Picnic"></div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded gallery-img" alt="Beach"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section id="timeline" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Family Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-right"><h5>2000 - Family Begins</h5><p>Our journey started!</p></div>
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="100"><h5>2005 - First Trip</h5><p>A memorable adventure.</p></div>
+      <div class="timeline-item" data-aos="fade-right" data-aos-delay="200"><h5>2015 - Kids Born</h5><p>Joyful moments.</p></div>
+      <div class="timeline-item" data-aos="fade-left" data-aos-delay="300"><h5>2023 - Family Adventures</h5><p>Exploring new places.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Counters -->
+<section id="counters" class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Family Stats</h2>
+    <div class="row">
+      <div class="col-md-4" data-aos="fade-up"><div class="counter" data-target="23">0</div><p>Years Together</p></div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100"><div class="counter" data-target="48">0</div><p>Trips Taken</p></div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200"><div class="counter" data-target="120">0</div><p>Fun Activities</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+    <form id="contactForm" data-aos="fade-up" data-aos-delay="100">
+      <input type="text" class="form-control mb-3" placeholder="Your Name" required>
+      <input type="email" class="form-control mb-3" placeholder="Your Email" required>
+      <textarea class="form-control mb-3" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+      <p class="mt-3" id="formMessage" style="color:green;"></p>
+    </form>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox"><img src="" alt="Expanded"></div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Ultimate Family. All rights reserved.</p>
+</footer>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init();
+
+// Dark mode toggle with local storage
+function toggleDarkMode(){
+  document.body.classList.toggle('dark-mode');
+  if(document.body.classList.contains('dark-mode')){
+    localStorage.setItem('theme','dark');
+  }else{
+    localStorage.setItem('theme','light');
+  }
+}
+if(localStorage.getItem('theme')==='dark'){ document.body.classList.add('dark-mode'); }
+
+// Contact form
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('formMessage').textContent = "Thank you! Your message has been sent.";
+  this.reset();
+});
+
+// Counter animation
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+  const updateCount = ()=>{
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText;
+    const increment = target / 200;
+    if(count<target){
+      counter.innerText = Math.ceil(count+increment);
+      setTimeout(updateCount,10);
+    }else{
+      counter.innerText = target;
+    }
+  };
+  updateCount();
+});
+
+// Lightbox gallery
+const galleryImgs = document.querySelectorAll('.gallery-img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+galleryImgs.forEach(img=>{
+  img.addEventListener('click', ()=>{
+    lightbox.style.display='flex';
+    lightboxImg.src=img.src;
+  });
+});
+lightbox.addEventListener('click', ()=>{ lightbox.style.display='none'; });
+
+</script>
+</body>
+</html>
