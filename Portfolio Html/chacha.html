@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Beautiful Family Website</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease-in;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        nav a:hover {
+            background-color: #f39c12;
+            transform: scale(1.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .family-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .member {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+        .member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 4px solid #f39c12;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #f39c12;
+            outline: none;
+        }
+        button {
+            background: linear-gradient(45deg, #f39c12, #e74c3c);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Beautiful Family Website</h1>
+        <p>Sharing memories and stories with style</p>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#members">Family Members</a>
+        <a href="#photos">Photos</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <section id="home" class="section">
+            <h2>About Us</h2>
+            <p>This is our dynamic family site, powered by JavaScript for a beautiful, interactive experience!</p>
+        </section>
+        
+        <section id="members" class="section">
+            <h2>Family Members</h2>
+            <div id="familyContainer" class="family-members"></div>
+        </section>
+        
+        <section id="photos" class="section">
+            <h2>Family Photos</h2>
+            <div id="galleryContainer" class="gallery"></div>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+    
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Our Family. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Data for dynamic loading
+        const familyMembers = [
+            { name: 'Dad', desc: 'Loves hiking and coding.', img: 'https://via.placeholder.com/120' },
+            { name: 'Mom', desc: 'Enjoys cooking and gardening.', img: 'https://via.placeholder.com/120' },
+            { name: 'Kid', desc: 'Plays soccer and draws.', img: 'https://via.placeholder.com/120' }
+        ];
+        
+        const photos = [
+            'https://via.placeholder.com/300x200',
+            'https://via.placeholder.com/300x200',
+            'https://via.placeholder.com/300x200',
+            'https://via.placeholder.com/300x200'
+        ];
+        
+        // Load family members dynamically
+        const familyContainer = document.getElementById('familyContainer');
+        familyMembers.forEach(member => {
+            const memberDiv = document.createElement('div');
+            memberDiv.className = 'member';
+            memberDiv.innerHTML = `
+                <img src="${member.img}" alt="${member.name}">
+                <h3>${member.name}</h3>
+                <p>${member.desc}</p>
+            `;
+            familyContainer.appendChild(memberDiv);
+        });
+        
+        // Load photo gallery dynamically
+        const galleryContainer = document.getElementById('galleryContainer');
+        photos.forEach(photo => {
+            const img = document.createElement('img');
+            img.src = photo;
+            img.alt = 'Family Photo';
+            img.addEventListener('click', () => openLightbox(photo));
+            galleryContainer.appendChild(img);
+        });
+        
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.querySelector('.close');
+        
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+        }
+        
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+        
+        // Form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !message) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            
+            if (!/\S+@\S+\.\S+/.test(email)) {
+                alert('Please enter a valid email.');
+                return;
+            }
+            
+            alert('Thank you for your message! (Demo: In production, send to server.)');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
