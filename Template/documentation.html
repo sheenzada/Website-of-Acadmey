@@ -1,0 +1,1029 @@
+Documentation
+Table of contents
+ Introduction
+ Getting started
+ Basic structure
+Introduction
+PolluxUI Admin is a responsive HTML template that is based on the CSS framework Bootstrap 4 and it is built with Sass. Sass compiler makes it easier to code and customize. If you are unfamiliar with Bootstrap or Sass, visit their website and read through the documentation. All of Bootstrap components have been modified to fit the style of PolluxUI Admin and provide a consistent look throughout the template.
+
+Before you start working with the template, we suggest you go through the pages that are bundled with the theme. Most of the template example pages contain quick tips on how to create or use a component which can be really helpful when you need to create something on the fly.
+
+Note: We are trying our best to document how to use the template. If you think that something is missing from the documentation, please do not hesitate to tell us about it. If you have any questions or issues regarding this theme please email us at support@bootstrapdash.com
+Getting started
+You can directly use the compiled and ready-to-use the version of the template. But in case you plan to customize the template extensively the template allows you to do so.
+
+Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations:
+
+PolluxUI-free/
+├── template/
+      ├── css/
+      ├── fonts/
+      ├── images/
+      ├── js/
+      ├── pages/
+      ├── partials/
+      ├── index.html
+      ├── scss/
+      ├── vendors/
+      ├── gulpfile.js
+      ├── index.html
+      ├── package.json                           
+├── docs/
+      ├── documentation.html
+      ├── documentation.js
+├── CHANGELOG.md
+Note: The root folder denoted further in this documentation refers to the 'template' folder inside the downloaded folder
+
+We have bundled up the vendor files needed for demo purpose into a folder 'vendors', you may not need all those vendors in your application. If you want to make any change in the vendor package files, you need to change the src path for related tasks in the file gulpfile.js and run the task bundleVendors to rebuild the vendor files.
+
+Installation
+You need to install package files/Dependencies for this project if you want to customize it. To do this, you must have node and npm installed in your computer.
+
+Installation guide of the node can be found here. As npm comes bundled with a node, a separate installation of npm is not needed.
+
+If you have installed them, just go to the root folder and run the following command in your command prompt or terminal (for the mac users).
+
+npm install
+This will install the dev dependencies in the local node_modules folder in your root directory.
+
+Then you will need to install Gulp. We use the Gulp task manager for the development processes. Gulp will watch for changes to the SCSS files and automatically compile the files to CSS.
+
+Getting started with Gulp is pretty simple. The Gulp site is a great place to get information on installing Gulp if you need more information. You need to first install Gulp-cli in your machine using the below command.
+
+npm install -g gulp-cli
+This installs Gulp-cli globally to your machine. The other thing that Gulp requires, which, is really what does all the work, is the gulpfile.js. In this file, you set up all of your tasks that you will run.
+
+Don't worry. We have this file already created for you!
+
+To run this project in development mode enter the following command below. This will start the file watch by gulp and whenever a file is modified, the SCSS files will be compiled to create the CSS file.
+
+gulp serve
+It is important to run gulp serve command from the directory where the gulpfile.js is located.
+Basic structure
+The below snippet shows the basic HTML structure of PolluxUI Admin. Please note that all the stylesheets and script files in the below snippet should be included to render PolluxUI Admin styles.
+
+Vertical light
+This section contains code of default vertical layout. For other layouts in vertical mode like boxed, icon-menu etc., you can follow the snippet same as below, but you have to just add the appropriate optional class to the body. More details of the classes are given in Options section
+
+​
+1
+<!DOCTYPE html>
+2
+<html lang="en">
+3
+​
+4
+<head>
+5
+  <!-- Required meta tags -->
+6
+  <meta charset="utf-8">
+7
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+8
+  <title>PolluxUI Admin</title>
+9
+  <!-- base:css -->
+10
+  <link rel="stylesheet" href="path-to/vendors/typicons/typicons.css">
+11
+  <link rel="stylesheet" href="path-to/vendors/css/vendor.bundle.base.css">
+12
+  <!-- endinject -->
+13
+  <!-- plugin css for this page -->
+14
+  <!-- End plugin css for this page -->
+15
+  <!-- inject:css -->
+16
+  <link rel="stylesheet" href="path-to/css/vertical-layout-light/style.css">
+17
+  <!-- endinject -->
+18
+  <link rel="shortcut icon" href="path-to/images/favicon.png" />
+19
+</head>
+20
+​
+21
+<body>
+22
+  <div class="container-scroller">
+23
+    <!-- partial:path-to/partials/_navbar.html -->
+24
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+25
+      <div class="navbar-brand-wrapper d-flex justify-content-center">
+26
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+27
+          <a class="navbar-brand brand-logo" href="path-to/index.html"><img src="path-to/images/logo.svg" alt="logo"/></a>
+28
+          <a class="navbar-brand brand-logo-mini" href="path-to/index.html"><img src="path-to/images/logo-mini.svg" alt="logo"/></a>
+29
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+30
+            <span class="typcn typcn-th-menu"></span>
+31
+          </button>
+32
+        </div>
+33
+      </div>
+34
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+35
+        <ul class="navbar-nav mr-lg-2">
+36
+          <li class="nav-item nav-profile dropdown">
+37
+            <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+38
+              <img src="path-to/images/faces/face5.jpg" alt="profile"/>
+39
+              <span class="nav-profile-name">Eugenia Mullins</span>
+40
+            </a>
+41
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+42
+              <a class="dropdown-item">
+43
+                <i class="typcn typcn-cog-outline text-primary"></i>
+44
+                Settings
+45
+              </a>
+46
+              <a class="dropdown-item">
+47
+                <i class="typcn typcn-eject text-primary"></i>
+48
+                Logout
+49
+              </a>
+50
+            </div>
+51
+          </li>
+52
+          <li class="nav-item nav-user-status dropdown">
+53
+              <p class="mb-0">Last login was 23 hours ago.</p>
+54
+          </li>
+55
+        </ul>
+56
+        <ul class="navbar-nav navbar-nav-right">
+57
+          <li class="nav-item nav-date dropdown">
+58
+            <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
+59
+              <h6 class="date mb-0">Today : Mar 23</h6>
+60
+              <i class="typcn typcn-calendar"></i>
+61
+            </a>
+62
+          </li>
+63
+          <li class="nav-item dropdown">
+64
+            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+65
+              <i class="typcn typcn-cog-outline mx-0"></i>
+66
+              <span class="count"></span>
+67
+            </a>
+68
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+69
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+70
+              <a class="dropdown-item preview-item">
+71
+                <div class="preview-thumbnail">
+72
+                    <img src="path-to/images/faces/face4.jpg" alt="image" class="profile-pic">
+73
+                </div>
+74
+                <div class="preview-item-content flex-grow">
+75
+                  <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+76
+                  </h6>
+77
+                  <p class="font-weight-light small-text text-muted mb-0">
+78
+                    The meeting is cancelled
+79
+                  </p>
+80
+                </div>
+81
+              </a>
+82
+              <a class="dropdown-item preview-item">
+83
+                <div class="preview-thumbnail">
+84
+                    <img src="path-to/images/faces/face2.jpg" alt="image" class="profile-pic">
+85
+                </div>
+86
+                <div class="preview-item-content flex-grow">
+87
+                  <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+88
+                  </h6>
+89
+                  <p class="font-weight-light small-text text-muted mb-0">
+90
+                    New product launch
+91
+                  </p>
+92
+                </div>
+93
+              </a>
+94
+              <a class="dropdown-item preview-item">
+95
+                <div class="preview-thumbnail">
+96
+                    <img src="path-to/images/faces/face3.jpg" alt="image" class="profile-pic">
+97
+                </div>
+98
+                <div class="preview-item-content flex-grow">
+99
+                  <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
+100
+                  </h6>
+101
+                  <p class="font-weight-light small-text text-muted mb-0">
+102
+                    Upcoming board meeting
+103
+                  </p>
+104
+                </div>
+105
+              </a>
+106
+            </div>
+107
+          </li>
+108
+          <li class="nav-item dropdown mr-0">
+109
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+110
+              <i class="typcn typcn-bell mx-0"></i>
+111
+              <span class="count"></span>
+112
+            </a>
+113
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+114
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+115
+              <a class="dropdown-item preview-item">
+116
+                <div class="preview-thumbnail">
+117
+                  <div class="preview-icon bg-success">
+118
+                    <i class="typcn typcn-info mx-0"></i>
+119
+                  </div>
+120
+                </div>
+121
+                <div class="preview-item-content">
+122
+                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+123
+                  <p class="font-weight-light small-text mb-0 text-muted">
+124
+                    Just now
+125
+                  </p>
+126
+                </div>
+127
+              </a>
+128
+              <a class="dropdown-item preview-item">
+129
+                <div class="preview-thumbnail">
+130
+                  <div class="preview-icon bg-warning">
+131
+                    <i class="typcn typcn-cog-outline mx-0"></i>
+132
+                  </div>
+133
+                </div>
+134
+                <div class="preview-item-content">
+135
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+136
+                  <p class="font-weight-light small-text mb-0 text-muted">
+137
+                    Private message
+138
+                  </p>
+139
+                </div>
+140
+              </a>
+141
+              <a class="dropdown-item preview-item">
+142
+                <div class="preview-thumbnail">
+143
+                  <div class="preview-icon bg-info">
+144
+                    <i class="typcn typcn-user mx-0"></i>
+145
+                  </div>
+146
+                </div>
+147
+                <div class="preview-item-content">
+148
+                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+149
+                  <p class="font-weight-light small-text mb-0 text-muted">
+150
+                    2 days ago
+151
+                  </p>
+152
+                </div>
+153
+              </a>
+154
+            </div>
+155
+          </li>
+156
+        </ul>
+157
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+158
+          <span class="typcn typcn-th-menu"></span>
+159
+        </button>
+160
+      </div>
+161
+    </nav>
+162
+    <!-- partial -->
+163
+    <div class="container-fluid page-body-wrapper">
+164
+      <!-- partial:path-to/partials/_settings-panel.html -->
+165
+      <div class="theme-setting-wrapper">
+166
+        <div id="settings-trigger"><i class="typcn typcn-cog-outline"></i></div>
+167
+        <div id="theme-settings" class="settings-panel">
+168
+          <i class="settings-close typcn typcn-times"></i>
+169
+          <p class="settings-heading">SIDEBAR SKINS</p>
+170
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+171
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+172
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+173
+          <div class="color-tiles mx-0 px-4">
+174
+            <div class="tiles success"></div>
+175
+            <div class="tiles warning"></div>
+176
+            <div class="tiles danger"></div>
+177
+            <div class="tiles info"></div>
+178
+            <div class="tiles dark"></div>
+179
+            <div class="tiles default"></div>
+180
+          </div>
+181
+        </div>
+182
+      </div>
+183
+      <div id="right-sidebar" class="settings-panel">
+184
+        <i class="settings-close typcn typcn-times"></i>
+185
+        <ul class="nav nav-tabs" id="setting-panel" role="tablist">
+186
+          <li class="nav-item">
+187
+            <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+188
+          </li>
+189
+          <li class="nav-item">
+190
+            <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
+191
+          </li>
+192
+        </ul>
+193
+        <div class="tab-content" id="setting-content">
+194
+          <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+195
+            <div class="add-items d-flex px-3 mb-0">
+196
+              <form class="form w-100">
+197
+                <div class="form-group d-flex">
+198
+                  <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
+199
+                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+200
+                </div>
+201
+              </form>
+202
+            </div>
+203
+            <div class="list-wrapper px-3">
+204
+              <ul class="d-flex flex-column-reverse todo-list">
+205
+                <li>
+206
+                  <div class="form-check">
+207
+                    <label class="form-check-label">
+208
+                      <input class="checkbox" type="checkbox">
+209
+                      Team review meeting at 3.00 PM
+210
+                    </label>
+211
+                  </div>
+212
+                  <i class="remove typcn typcn-delete-outline"></i>
+213
+                </li>
+214
+                <li>
+215
+                  <div class="form-check">
+216
+                    <label class="form-check-label">
+217
+                      <input class="checkbox" type="checkbox">
+218
+                      Prepare for presentation
+219
+                    </label>
+220
+                  </div>
+221
+                  <i class="remove typcn typcn-delete-outline"></i>
+222
+                </li>
+223
+                <li>
+224
+                  <div class="form-check">
+225
+                    <label class="form-check-label">
+226
+                      <input class="checkbox" type="checkbox">
+227
+                      Resolve all the low priority tickets due today
+228
+                    </label>
+229
+                  </div>
+230
+                  <i class="remove typcn typcn-delete-outline"></i>
+231
+                </li>
+232
+                <li class="completed">
+233
+                  <div class="form-check">
+234
+                    <label class="form-check-label">
+235
+                      <input class="checkbox" type="checkbox" checked>
+236
+                      Schedule meeting for next week
+237
+                    </label>
+238
+                  </div>
+239
+                  <i class="remove typcn typcn-delete-outline"></i>
+240
+                </li>
+241
+                <li class="completed">
+242
+                  <div class="form-check">
+243
+                    <label class="form-check-label">
+244
+                      <input class="checkbox" type="checkbox" checked>
+245
+                      Project review
+246
+                    </label>
+247
+                  </div>
+248
+                  <i class="remove typcn typcn-delete-outline"></i>
+249
+                </li>
+250
+              </ul>
+251
+            </div>
+252
+            <div class="events py-4 border-bottom px-3">
+253
+              <div class="wrapper d-flex mb-2">
+254
+                <i class="typcn typcn-media-record-outline text-primary mr-2"></i>
+255
+                <span>Feb 11 2018</span>
+256
+              </div>
+257
+              <p class="mb-0 font-weight-thin text-gray">Creating component page</p>
+258
+              <p class="text-gray mb-0">build a js based app</p>
+259
+            </div>
+260
+            <div class="events pt-4 px-3">
+261
+              <div class="wrapper d-flex mb-2">
+262
+                <i class="typcn typcn-media-record-outline text-primary mr-2"></i>
+263
+                <span>Feb 7 2018</span>
+264
+              </div>
+265
+              <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+266
+              <p class="text-gray mb-0 ">Call Sarah Graves</p>
+267
+            </div>
+268
+          </div>
+269
+          <!-- To do section tab ends -->
+270
+          <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+271
+            <div class="d-flex align-items-center justify-content-between border-bottom">
+272
+              <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+273
+              <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
+274
+            </div>
+275
+            <ul class="chat-list">
+276
+              <li class="list active">
+277
+                <div class="profile"><img src="path-to/images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+278
+                <div class="info">
+279
+                  <p>Thomas Douglas</p>
+280
+                  <p>Available</p>
+281
+                </div>
+282
+                <small class="text-muted my-auto">19 min</small>
+283
+              </li>
+284
+              <li class="list">
+285
+                <div class="profile"><img src="path-to/images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+286
+                <div class="info">
+287
+                  <div class="wrapper d-flex">
+288
+                    <p>Catherine</p>
+289
+                  </div>
+290
+                  <p>Away</p>
+291
+                </div>
+292
+                <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+293
+                <small class="text-muted my-auto">23 min</small>
+294
+              </li>
+295
+              <li class="list">
+296
+                <div class="profile"><img src="path-to/images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+297
+                <div class="info">
+298
+                  <p>Daniel Russell</p>
+299
+                  <p>Available</p>
+300
+                </div>
+301
+                <small class="text-muted my-auto">14 min</small>
+302
+              </li>
+303
+              <li class="list">
+304
+                <div class="profile"><img src="path-to/images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+305
+                <div class="info">
+306
+                  <p>James Richardson</p>
+307
+                  <p>Away</p>
+308
+                </div>
+309
+                <small class="text-muted my-auto">2 min</small>
+310
+              </li>
+311
+              <li class="list">
+312
+                <div class="profile"><img src="path-to/images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+313
+                <div class="info">
+314
+                  <p>Madeline Kennedy</p>
+315
+                  <p>Available</p>
+316
+                </div>
+317
+                <small class="text-muted my-auto">5 min</small>
+318
+              </li>
+319
+              <li class="list">
+320
+                <div class="profile"><img src="path-to/images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+321
+                <div class="info">
+322
+                  <p>Sarah Graves</p>
+323
+                  <p>Available</p>
+324
+                </div>
+325
+                <small class="text-muted my-auto">47 min</small>
+326
+              </li>
+327
+            </ul>
+328
+          </div>
+329
+          <!-- chat tab ends -->
+330
+        </div>
+331
+      </div>
+332
+      <!-- partial -->
+333
+      <!-- partial:path-to/partials/_sidebar.html -->
+334
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+335
+        <ul class="nav">
+336
+          <li class="nav-item">
+337
+            <a class="nav-link" href="index.html">
+338
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+339
+              <span class="menu-title">Dashboard</span>
+340
+              <div class="badge badge-danger">new</div>
+341
+            </a>
+342
+          </li>
+343
+          <li class="nav-item">
+344
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+345
+              <i class="typcn typcn-document-text menu-icon"></i>
+346
+              <span class="menu-title">UI Elements</span>
+347
+              <i class="menu-arrow"></i>
+348
+            </a>
+349
+            <div class="collapse" id="ui-basic">
+350
+              <ul class="nav flex-column sub-menu">
+351
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
+352
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+353
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+354
+              </ul>
+355
+            </div>
+356
+          </li>
+357
+          <li class="nav-item">
+358
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+359
+              <i class="typcn typcn-film menu-icon"></i>
+360
+              <span class="menu-title">Form elements</span>
+361
+              <i class="menu-arrow"></i>
+362
+            </a>
+363
+            <div class="collapse" id="form-elements">
+364
+              <ul class="nav flex-column sub-menu">
+365
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
+366
+              </ul>
+367
+            </div>
+368
+          </li>
+369
+          <li class="nav-item">
+370
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+371
+              <i class="typcn typcn-chart-pie-outline menu-icon"></i>
+372
+              <span class="menu-title">Charts</span>
+373
+              <i class="menu-arrow"></i>
+374
+            </a>
+375
+            <div class="collapse" id="charts">
+376
+              <ul class="nav flex-column sub-menu">
+377
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+378
+              </ul>
+379
+            </div>
+380
+          </li>
+381
+          <li class="nav-item">
+382
+            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+383
+              <i class="typcn typcn-th-small-outline menu-icon"></i>
+384
+              <span class="menu-title">Tables</span>
+385
+              <i class="menu-arrow"></i>
+386
+            </a>
+387
+            <div class="collapse" id="tables">
+388
+              <ul class="nav flex-column sub-menu">
+389
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+390
+              </ul>
+391
+            </div>
+392
+          </li>
+393
+          <li class="nav-item">
+394
+            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+395
+              <i class="typcn typcn-compass menu-icon"></i>
+396
+              <span class="menu-title">Icons</span>
+397
+              <i class="menu-arrow"></i>
+398
+            </a>
+399
+            <div class="collapse" id="icons">
+400
+              <ul class="nav flex-column sub-menu">
+401
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+402
+              </ul>
+403
+            </div>
+404
+          </li>
+405
+          <li class="nav-item">
+406
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+407
+              <i class="typcn typcn-user-add-outline menu-icon"></i>
+408
+              <span class="menu-title">User Pages</span>
+409
+              <i class="menu-arrow"></i>
+410
+            </a>
+411
+            <div class="collapse" id="auth">
+412
+              <ul class="nav flex-column sub-menu">
+413
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+414
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+415
+              </ul>
+416
+            </div>
+417
+          </li>
+418
+          <li class="nav-item">
+419
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+420
+              <i class="typcn typcn-globe-outline menu-icon"></i>
+421
+              <span class="menu-title">Error pages</span>
+422
+              <i class="menu-arrow"></i>
+423
+            </a>
+424
+            <div class="collapse" id="error">
+425
+              <ul class="nav flex-column sub-menu">
+426
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+427
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+428
+              </ul>
+429
+            </div>
+430
+          </li>
+431
+          <li class="nav-item">
+432
+            <a class="nav-link" href="https://bootstrapdash.com/demo/polluxui-free/docs/documentation.html">
+433
+              <i class="typcn typcn-mortar-board menu-icon"></i>
+434
+              <span class="menu-title">Documentation</span>
+435
+            </a>
+436
+          </li>
+437
+        </ul>
+438
+      </nav>
+439
+      <!-- partial -->
+440
+      <div class="main-panel">
+441
+        <div class="content-wrapper">
+442
+        </div>
+443
+        <!-- content-wrapper ends -->
+444
+        <!-- partial:path-to/partials/_footer.html -->
+445
+        <footer class="footer">
+446
+            <div class="card">
+447
+                <div class="card-body">
+448
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+449
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="https://www.bootstrapdash.com/" class="text-muted" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+450
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center text-muted">Hand-crafted & made with <i class="typcn typcn-heart-full-outline text-danger"></i></span>
+451
+                    </div>
+452
+                </div>    
+453
+            </div>        
+454
+        </footer>
+455
+        <!-- partial -->
+456
+      </div>
+457
+      <!-- main-panel ends -->
+458
+    </div>
+459
+    <!-- page-body-wrapper ends -->
+460
+  </div>
+461
+  <!-- container-scroller -->
+462
+  <!-- base:js -->
+463
+  <script src="path-to/vendors/js/vendor.bundle.base.js"></script>
+464
+  <!-- endinject -->
+465
+  <!-- Plugin js for this page-->
+466
+  <!-- End plugin js for this page-->
+467
+  <!-- inject:js -->
+468
+  <script src="path-to/js/off-canvas.js"></script>
+469
+  <script src="path-to/js/hoverable-collapse.js"></script>
+470
+  <script src="path-to/js/template.js"></script>
+471
+  <script src="path-to/js/settings.js"></script>
+472
+  <script src="path-to/js/todolist.js"></script>
+473
+  <!-- endinject -->
+474
+  <!-- Custom js for this page-->
+475
+  <!-- End custom js for this page-->
+476
+</body>
+477
+​
+478
+</html>
+479
+​
+480
+​
+Copyright © 2020 Bootstrapdash. All rights reserved.Hand-crafted & made with 
